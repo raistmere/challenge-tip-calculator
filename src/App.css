@@ -1,5 +1,47 @@
+@font-face {
+  font-family: "SpaceMono-Regular";
+  src: url("./assets/fonts/SpaceMono-Regular.ttf");
+}
+@font-face {
+  font-family: "SpaceMono-Italic";
+  src: url("./assets/fonts/SpaceMono-Italic.ttf");
+}
+@font-face {
+  font-family: "SpaceMono-Bold";
+  src: url("./assets/fonts/SpaceMono-Bold.ttf");
+}
+@font-face {
+  font-family: "SpaceMono-BoldItalic";
+  src: url("./assets/fonts/SpaceMono-BoldItalic.ttf");
+}
+
+:root {
+  /*  */
+  font-size: 16px;
+
+  /* Fonts */
+  --font-spaceMono-reg: "SpaceMono-Regular";
+  --font-spaceMono-italic: "SpaceMono-Italic";
+  --font-spaceMono-bold: "SpaceMono-Bold";
+  --font-spaceMono-bold-italic: "SpaceMono-BoldItalic";
+  
+  /* Colors */
+  --color-strong-cyan: hsl(172, 67%, 45%);
+  --color-very-dark-cyan: hsl(183, 100%, 15%);
+  --color-dark-grayish-cyan: hsl(186, 14%, 43%);
+  --color-grayish-cyan: hsl(184, 14%, 56%);
+  --color-light-grayish-cyan: hsl(185, 41%, 84%);
+  --color-very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --color-white: hsl(0, 0%, 100%);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--font-spaceMono-reg);
+}
+
+body {
+  font-size: 1rem;
 }

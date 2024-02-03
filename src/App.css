@@ -43,5 +43,180 @@
 }
 
 body {
+  background-color: var(--color-dark-grayish-cyan);
+}
+
+#wrapper {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--color-light-grayish-cyan);
+}
+
+.logo {
+  padding: 2rem;
+}
+
+
+.calculatorBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  width: 100%;
+  height: 2rem;
+  text-align: right;
+  padding: 1rem;
+}
+
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.billBox, .peopleBox {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.5rem;
+}
+
+.billBox > label, .peopleBox > label {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  color: var(--color-dark-grayish-cyan);
+  font-family: var(--font-spaceMono-bold);
   font-size: 1rem;
+}
+
+.billBox > input, .peopleBox > input {
+  grid-column: 1/-1;
+  grid-row: 2/-1;
+  border-style: none;
+  color: var(--color-very-dark-cyan);
+  font-family: var(--font-spaceMono-bold);
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--color-very-light-grayish-cyan);
+  border-radius: 0.5rem;
+}
+
+.billBox > input:focus, .peopleBox > input:focus {
+  border-color: var(--color-strong-cyan);
+}
+
+.billBox > img, .peopleBox > img {
+  grid-column: 1/2;
+  grid-row: 2/-1;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  font-family: var(--font-spaceMono-reg);
+  color: var(--color-grayish-cyan);
+}
+
+.tipBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tipBox > h2 {
+  font-size: 1rem;
+  font-family: var(--font-spaceMono-bold);
+  color: var(--color-dark-grayish-cyan);
+}
+
+.percentBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+}
+
+.percentButton {
+  font-size: 1.5rem;
+  border-style: none;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  color: var(--color-very-light-grayish-cyan);
+  font-family: var(--font-spaceMono-bold);
+  background-color: var(--color-very-dark-cyan);
+}
+
+.outputBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: var(--color-very-dark-cyan);
+}
+
+.amountBox, .totalBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tipTitle, .totalTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainText {
+  color: var(--color-very-light-grayish-cyan);
+  font-family: var(--font-spaceMono-bold);
+}
+
+.subText {
+  font-size: 0.75rem;
+  color: var(--color-grayish-cyan);
+  font-family: var(--font-spaceMono-bold);
+}
+
+.amountText {
+  font-size: 2rem;
+  color: var(--color-strong-cyan);
+  font-family: var(--font-spaceMono-bold);
+}
+
+.resetButton {
+  font-size: 1.25rem;
+  color: var(--color-very-dark-cyan);
+  font-family: var(--font-spaceMono-bold);
+  border-style: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  background-color: var(--color-strong-cyan);
+}
+
+
+
+
+@media screen and (min-width: 600px) {
+  * {
+    color: red;
+  }
+
+  .calculatorBox {
+    width: 600px;
+    flex-direction: row;
+  }
 }

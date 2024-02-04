@@ -25,7 +25,7 @@ function App() {
               <button className="percentButton">15%</button>
               <button className="percentButton">25%</button>
               <button className="percentButton">50%</button>
-              <button className="percentButton">Custom</button>
+              <button className="percentButton custom">Custom</button>
             </div>
           </div>
           <div className="peopleBox">

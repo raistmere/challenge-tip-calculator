@@ -1,9 +1,16 @@
 import './App.css'
+import { useState } from 'react';
 import appLogo from "./assets/images/logo.svg";
 import dollarIcon from "./assets/images/icon-dollar.svg";
 import personIcon from "./assets/images/icon-person.svg";
 
 function App() {
+  const [selected, setSelected] = useState<string>("");
+
+  const changeSelected = (value : string) => {
+    console.log("Changing selected...");
+    setSelected(value);
+  };
 
   return (
     <div id="wrapper">
@@ -14,17 +21,17 @@ function App() {
         <div className="inputBox">
           <div className="billBox">
             <label htmlFor="billInput">Bill</label>
-            <input type="number" id='billInput' name='billInput' />
+            <input type="number" id='billInput' name='billInput'/>
             <img src={dollarIcon} alt="A dollar icon" />
           </div>
           <div className="tipBox">
             <h2>Select Tip %</h2>
             <div className="percentBox">
-              <button className="percentButton">5%</button>
-              <button className="percentButton">10%</button>
-              <button className="percentButton">15%</button>
-              <button className="percentButton">25%</button>
-              <button className="percentButton">50%</button>
+              <button className={selected === "5" ? "percentButton selected" : "percentButton"} onClick={() => changeSelected("5")}>5%</button>
+              <button className={selected === "10" ? "percentButton selected" : "percentButton"} onClick={() => changeSelected("10")}>10%</button>
+              <button className={selected === "15" ? "percentButton selected" : "percentButton"} onClick={() => changeSelected("15")}>15%</button>
+              <button className={selected === "25" ? "percentButton selected" : "percentButton"} onClick={() => changeSelected("25")}>25%</button>
+              <button className={selected === "50" ? "percentButton selected" : "percentButton"} onClick={() => changeSelected("50")}>50%</button>
               <button className="percentButton custom">Custom</button>
             </div>
           </div>
@@ -52,26 +59,6 @@ function App() {
           <button className="resetButton">RESET</button>
         </div>
       </div>
-      {/* Bill
-
-        Select Tip %
-        5%
-        10%
-        15%
-        25%
-        50%
-        Custom
-
-        Number of People
-
-        Tip Amount
-        / person
-
-        Total
-        / person
-
-        Reset */}
-
   </div>
   )
 }

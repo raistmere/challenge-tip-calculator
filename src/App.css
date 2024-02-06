@@ -173,7 +173,7 @@ input::-webkit-inner-spin-button {
   background-color: var(--color-very-dark-cyan);
 }
 
-.amountBox, .totalBox {
+.tipAmountBox, .totalBox {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

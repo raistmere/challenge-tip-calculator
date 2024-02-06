@@ -39,6 +39,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline-offset: 0.20rem;
   font-family: var(--font-spaceMono-reg);
 }
 
@@ -117,6 +118,8 @@ input::-webkit-inner-spin-button {
 }
 
 .billBox > input:focus, .peopleBox > input:focus {
+  outline: none;
+  border-style: solid;
   border-color: var(--color-strong-cyan);
 }
 
@@ -158,9 +161,31 @@ input::-webkit-inner-spin-button {
   background-color: var(--color-very-dark-cyan);
 }
 
-.percentBox .custom {
+.percentBox > input {
   color: var(--color-dark-grayish-cyan);
   background-color: var(--color-very-light-grayish-cyan);
+}
+
+.percentBox > input {
+  border-style: none;
+  color: var(--color-white);
+  font-family: var(--font-spaceMono-bold);
+  font-size: 1.5rem;
+  padding: 1.35rem;
+  background-color: var(--color-strong-cyan);
+  border-radius: 0.25rem;
+}
+
+.percentBox > input:focus {
+  outline: none;
+  border-style: solid;
+  border-color: var(--color-strong-cyan);
+  color: var(--color-very-dark-cyan);
+  font-family: var(--font-spaceMono-bold);
+  font-size: 1.5rem;
+  padding: 1.35rem;
+  background-color: var(--color-very-light-grayish-cyan);
+  border-radius: 0.25rem;
 }
 
 .outputBox {

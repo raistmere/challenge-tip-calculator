@@ -1,5 +1,5 @@
 import './App.css'
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import appLogo from "./assets/images/logo.svg";
 import dollarIcon from "./assets/images/icon-dollar.svg";
 import personIcon from "./assets/images/icon-person.svg";
@@ -8,15 +8,18 @@ function App() {
   const [billAmount, setBillAmount] = useState<string>("0");
   const [percentageAmount, setPercentageAmount] = useState<string>("0");
   const [peopleAmount, setPeopleAmount] = useState<string>("0");
+  const [customAmount, setCustomAmount] = useState<boolean>(false);
 
-  useEffect(() => {
-
-  }, [billAmount, peopleAmount])
+  const changePercentage = (value: string, isCustom: boolean) => {
+    console.log(value);
+    setCustomAmount(isCustom);
+    setPercentageAmount(value);
+  }
 
   const calculateTipAmount = (): string => {
     if(billAmount === "") return "$0.00";
     if(peopleAmount === "0" || peopleAmount === "") return "$0.00";
-    let amount = (parseInt(billAmount) / parseInt(peopleAmount)) * (parseInt(percentageAmount) / 100);
+    let amount = Math.round(((parseInt(billAmount) / parseInt(peopleAmount)) * (parseInt(percentageAmount) / 100)) * 100) / 100;
     return `$${amount}`;
   }
 
@@ -24,7 +27,7 @@ function App() {
     if(billAmount === "") return "$00.00";
     if(peopleAmount === "0" || peopleAmount === "") return "$00.00";
     let tipAmount = (parseInt(billAmount) / parseInt(peopleAmount)) * (parseInt(percentageAmount) / 100);
-    let totalAmount = parseInt(billAmount) / parseInt(peopleAmount) + tipAmount;
+    let totalAmount = Math.round((parseInt(billAmount) / parseInt(peopleAmount) + tipAmount) * 100) / 100;
     return `$${totalAmount}`;
   }
 
@@ -43,12 +46,19 @@ function App() {
           <div className="tipBox">
             <h2>Select Tip %</h2>
             <div className="percentBox">
-              <button className={percentageAmount === "5" ? "percentButton selected" : "percentButton"} onClick={() => setPercentageAmount("5")}>5%</button>
-              <button className={percentageAmount === "10" ? "percentButton selected" : "percentButton"} onClick={() => setPercentageAmount("10")}>10%</button>
-              <button className={percentageAmount === "15" ? "percentButton selected" : "percentButton"} onClick={() => setPercentageAmount("15")}>15%</button>
-              <button className={percentageAmount === "25" ? "percentButton selected" : "percentButton"} onClick={() => setPercentageAmount("25")}>25%</button>
-              <button className={percentageAmount === "50" ? "percentButton selected" : "percentButton"} onClick={() => setPercentageAmount("50")}>50%</button>
-              <button className="percentButton custom">Custom</button>
+              {/* Because there is a limit of percentage buttons, I decided to not make a custom component and instead just create static html for each button */}
+              <button className={percentageAmount === "5" && !customAmount ? "percentButton selected" : "percentButton"} onClick={() => changePercentage("5", false)}>5%</button>
+              <button className={percentageAmount === "10" && !customAmount ? "percentButton selected" : "percentButton"} onClick={() => changePercentage("10", false)}>10%</button>
+              <button className={percentageAmount === "15" && !customAmount ? "percentButton selected" : "percentButton"} onClick={() => changePercentage("15", false)}>15%</button>
+              <button className={percentageAmount === "25" && !customAmount ? "percentButton selected" : "percentButton"} onClick={() => changePercentage("25", false)}>25%</button>
+              <button className={percentageAmount === "50" && !customAmount ? "percentButton selected" : "percentButton"} onClick={() => changePercentage("50", false)}>50%</button>
+              {/* For the custom input, I went with a button that will activate an input field upon next render. The user will autofocus on that and be able to type in
+              what they need for percentage. After that it will remain selected until a percentageButton is selected. */}
+              {customAmount ? 
+                <input type="number" id='customInput' name='customInput' autoFocus defaultValue={percentageAmount} onChange={(e) => changePercentage(e.target.value, true)} />
+                : 
+                <button className="percentButton custom" onClick={() => changePercentage("0", true)}>Custom</button>
+              }
             </div>
           </div>
           <div className="peopleBox">

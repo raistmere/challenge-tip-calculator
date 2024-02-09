@@ -7,7 +7,7 @@ import personIcon from "./assets/images/icon-person.svg";
 function App() {
   const [billAmount, setBillAmount] = useState<string>("0");
   const [percentageAmount, setPercentageAmount] = useState<string>("0");
-  const [peopleAmount, setPeopleAmount] = useState<string>("0");
+  const [peopleAmount, setPeopleAmount] = useState<string>("1");
   const [customAmount, setCustomAmount] = useState<boolean>(false);
 
   const changePercentage = (value: string, isCustom: boolean) => {
@@ -31,6 +31,13 @@ function App() {
     return `$${totalAmount}`;
   }
 
+  const resetAllInput = () => {
+    setBillAmount("0");
+    setPercentageAmount("0");
+    setPeopleAmount("1");
+    setCustomAmount(false);
+  }
+
   return (
     <div id="wrapper">
       <div className="logoBox">
@@ -40,7 +47,7 @@ function App() {
         <div className="inputBox">
           <div className="billBox">
             <label htmlFor="billInput">Bill</label>
-            <input type="number" id='billInput' name='billInput' onChange={(e) => { setBillAmount(e.target.value) }} />
+            <input type="number" id='billInput' name='billInput' value={billAmount} onChange={(e) => { setBillAmount(e.target.value) }} />
             <img src={dollarIcon} alt="A dollar icon" />
           </div>
           <div className="tipBox">
@@ -63,7 +70,8 @@ function App() {
           </div>
           <div className="peopleBox">
             <label htmlFor="peopleInput">Number of People</label>
-            <input type="number" id='peopleInput' name='peopleInput' defaultValue={peopleAmount} onChange={(e) => {setPeopleAmount(e.target.value)}} />
+            {peopleAmount === "0" ? <p className='error'>Can't be zero</p> : null}
+            <input type="number" id='peopleInput' name='peopleInput' defaultValue={peopleAmount} value={peopleAmount} onChange={(e) => {setPeopleAmount(e.target.value)}} />
             <img src={personIcon} alt="A person icon" />
           </div>
         </div>
@@ -82,7 +90,7 @@ function App() {
             </div>
             <p className='amountText'>{calculateTotalAmount()}</p>
           </div>
-          <button className="resetButton">RESET</button>
+          <button className="resetButton" onClick={() => { resetAllInput()}}>RESET</button>
         </div>
       </div>
   </div>

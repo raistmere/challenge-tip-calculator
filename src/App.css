@@ -264,7 +264,7 @@ input::-webkit-inner-spin-button {
   background-color: var(--color-strong-cyan);
 }
 
-.resetButton:not(.unavaliable):hover {
+.resetButton:not(.unavailable):hover {
   background-color: var(--color-light-grayish-cyan);
 }
 

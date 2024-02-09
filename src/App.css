@@ -161,6 +161,11 @@ input::-webkit-inner-spin-button {
   background-color: var(--color-very-dark-cyan);
 }
 
+.percentButton:hover {
+  color: var(--color-very-dark-cyan);
+  background-color: var(--color-light-grayish-cyan);
+}
+
 .percentBox > input {
   color: var(--color-dark-grayish-cyan);
   background-color: var(--color-very-light-grayish-cyan);
@@ -250,6 +255,10 @@ input::-webkit-inner-spin-button {
   padding: 0.5rem;
   justify-self: flex-end;
   background-color: var(--color-strong-cyan);
+}
+
+.resetButton:hover {
+  background-color: var(--color-light-grayish-cyan);
 }
 
 

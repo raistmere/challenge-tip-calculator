@@ -211,10 +211,17 @@ input::-webkit-inner-spin-button {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
   padding: 1.5rem;
   border-radius: 1rem;
   background-color: var(--color-very-dark-cyan);
+}
+
+.outputBox .textBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .tipAmountBox, .totalBox {
@@ -257,7 +264,7 @@ input::-webkit-inner-spin-button {
   background-color: var(--color-strong-cyan);
 }
 
-.resetButton:hover {
+.resetButton:not(.unavaliable):hover {
   background-color: var(--color-light-grayish-cyan);
 }
 
@@ -302,4 +309,8 @@ input::-webkit-inner-spin-button {
 
 .errorBorder {
   border-color: red;
+}
+
+.unavaliable {
+  background-color: var(--color-dark-grayish-cyan);
 }

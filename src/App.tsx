@@ -76,21 +76,27 @@ function App() {
           </div>
         </div>
         <div className="outputBox">
-          <div className="tipAmountBox">
-            <div className="tipTitle">
-              <p className='mainText'>Tip Amount</p>
-              <p className='subText'>/ person</p>
+          <div className="textBox">
+            <div className="tipAmountBox">
+              <div className="tipTitle">
+                <p className='mainText'>Tip Amount</p>
+                <p className='subText'>/ person</p>
+              </div>
+              <p className='amountText'>{calculateTipAmount()}</p>
             </div>
-            <p className='amountText'>{calculateTipAmount()}</p>
-          </div>
-          <div className="totalBox">
-            <div className="totalTitle">
-              <p className='mainText'>Total</p>
-              <p className='subText'>/ person</p>
+            <div className="totalBox">
+              <div className="totalTitle">
+                <p className='mainText'>Total</p>
+                <p className='subText'>/ person</p>
+              </div>
+              <p className='amountText'>{calculateTotalAmount()}</p>
             </div>
-            <p className='amountText'>{calculateTotalAmount()}</p>
           </div>
-          <button className="resetButton" onClick={() => { resetAllInput()}}>RESET</button>
+          {billAmount === "0" ?
+              <button className="resetButton unavaliable">RESET</button>
+              :
+              <button className="resetButton" onClick={() => { resetAllInput()}}>RESET</button>
+          }
         </div>
       </div>
   </div>

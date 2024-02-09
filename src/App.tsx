@@ -93,7 +93,7 @@ function App() {
             </div>
           </div>
           {billAmount === "0" ?
-              <button className="resetButton unavaliable">RESET</button>
+              <button className="resetButton unavailable">RESET</button>
               :
               <button className="resetButton" onClick={() => { resetAllInput()}}>RESET</button>
           }

@@ -311,6 +311,6 @@ input::-webkit-inner-spin-button {
   border-color: red;
 }
 
-.unavaliable {
+.unavailable {
   background-color: var(--color-dark-grayish-cyan);
 }

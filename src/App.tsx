@@ -71,7 +71,7 @@ function App() {
           <div className="peopleBox">
             <label htmlFor="peopleInput">Number of People</label>
             {peopleAmount === "0" ? <p className='error'>Can't be zero</p> : null}
-            <input type="number" id='peopleInput' name='peopleInput' defaultValue={peopleAmount} value={peopleAmount} onChange={(e) => {setPeopleAmount(e.target.value)}} />
+            <input type="number" id='peopleInput' name='peopleInput' className={peopleAmount === "0" ? "errorBorder" : ""} defaultValue={peopleAmount} value={peopleAmount} onChange={(e) => {setPeopleAmount(e.target.value)}} />
             <img src={personIcon} alt="A person icon" />
           </div>
         </div>
